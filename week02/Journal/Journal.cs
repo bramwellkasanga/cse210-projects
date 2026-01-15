@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+public class Journal
+{
+    // Member variables
+    private List<Entry> _entries;
+
+    // Constructor
+    public Journal()
+    {
+        _entries = new List<Entry>();
+    }
+
+    // Methods
+    public void AddEntry(Entry entry)
+    {
+        _entries.Add(entry);
+    }
+
+    public void DisplayAll()
+    {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("No entries in the journal.\n");
+            return;
+        }
+
+        foreach (Entry entry in _entries)
+        {
+            entry.Display();
+        }
+    }
+
+    public void SaveToFile(string filename)
+    {
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach (Entry entry in _entries)
+            {
+                outputFile.WriteLine(entry.GetStringFormat());
+            }
+        }
+        Console.WriteLine($"Journal saved to {filename}\n");
+    }
+
+    public void LoadFromFile(string filename)
+    {
+        if (!File.Exists(filename))
+        {
+            Console.WriteLine($"File {filename} not found.\n");
+            return;
+        }
+
+        _entries.Clear();
+
+        string[] lines = File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            Entry entry = Entry.CreateFromString(line);
+            if (entry != null)
+            {
+                _entries.Add(entry);
+            }
+        }
+        Console.WriteLine($"Journal loaded from {filename}\n");
+    }
+
+    public int GetEntryCount()
+    {
+        return _entries.Count;
+    }
+}
