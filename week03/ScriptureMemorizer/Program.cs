@@ -2,52 +2,41 @@ using System;
 
 class Program
 {
-    /// <summary>
-    /// Scripture Memorizer - Helps users memorize scriptures by progressively hiding words
-    /// 
-    /// CREATIVITY FEATURES:
-    /// - The program allows hiding multiple words per iteration (not just one)
-    /// - Implements multiple constructor options for scripture references
-    /// - Uses proper encapsulation with private fields and public methods
-    /// - Clean object-oriented design with separate concerns for Reference, Word, and Scripture
-    /// - Provides helpful instructions to guide the user through the memorization process
-    /// </summary>
+    // Scripture Memorizer - hides words in scripture to help people practice
+    // hiding 3 words at a time so they can test themselves
     static void Main(string[] args)
     {
-        // Create a scripture reference
+        // make a reference for John 3:16
         Reference johnRef = new Reference("John", 3, 16);
         
-        // Create a scripture with the reference and text
+        // create the scripture with the text
         Scripture scripture = new Scripture(johnRef, 
             "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
         
-        // Main game loop
+        // keep going until they quit or all words are hidden
         while (true)
         {
-            // Clear the console and display the scripture
             Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());
             Console.WriteLine();
             
-            // Check if all words are hidden
+            // if all words hidden, we're done
             if (scripture.IsCompletelyHidden())
             {
-                Console.WriteLine("\nCongratulations! You have hidden all the words. Great job memorizing!");
+                Console.WriteLine("\nYou've hidden all the words! Good job!");
                 break;
             }
             
-            // Prompt the user
-            Console.Write("Press enter to continue or type 'quit' to exit: ");
+            Console.Write("Press enter or type 'quit': ");
             string userInput = Console.ReadLine();
             
-            // Check if user wants to quit
             if (userInput.ToLower() == "quit")
             {
-                Console.WriteLine("Thank you for practicing! Goodbye!");
+                Console.WriteLine("See you next time!");
                 break;
             }
             
-            // Hide a few random words
+            // hide 3 more words
             scripture.HideRandomWords(3);
         }
     }

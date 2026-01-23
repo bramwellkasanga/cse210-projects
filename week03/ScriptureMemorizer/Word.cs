@@ -11,17 +11,13 @@ class Word
         _isHidden = false;
     }
 
-    /// <summary>
-    /// Hides the word by replacing it with underscores
-    /// </summary>
+    // hides the word
     public void Hide()
     {
         _isHidden = true;
     }
 
-    /// <summary>
-    /// Returns the word if visible, or underscores if hidden
-    /// </summary>
+    // returns the word or underscores if hidden
     public string GetDisplayText()
     {
         if (_isHidden)
@@ -31,17 +27,13 @@ class Word
         return _text;
     }
 
-    /// <summary>
-    /// Checks if this word is already hidden
-    /// </summary>
+    // checks if the word is already hidden
     public bool IsHidden()
     {
         return _isHidden;
     }
 
-    /// <summary>
-    /// Gets the actual text of the word
-    /// </summary>
+    // gets the actual word
     public string GetText()
     {
         return _text;

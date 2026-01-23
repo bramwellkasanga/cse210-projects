@@ -7,9 +7,7 @@ class Reference
     private int _verse;
     private int _endVerse;
 
-    /// <summary>
-    /// Constructor for a single verse reference (e.g., "John 3:16")
-    /// </summary>
+    // constructor for single verse like "John 3:16"
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
@@ -18,9 +16,7 @@ class Reference
         _endVerse = verse;
     }
 
-    /// <summary>
-    /// Constructor for a verse range reference (e.g., "Proverbs 3:5-6")
-    /// </summary>
+    // constructor for verse range like "Proverbs 3:5-6"
     public Reference(string book, int chapter, int verse, int endVerse)
     {
         _book = book;
@@ -29,9 +25,7 @@ class Reference
         _endVerse = endVerse;
     }
 
-    /// <summary>
-    /// Returns the formatted reference as a string
-    /// </summary>
+    // returns the reference formatted properly
     public string GetReference()
     {
         if (_verse == _endVerse)

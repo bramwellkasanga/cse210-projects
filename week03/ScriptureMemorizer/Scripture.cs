@@ -12,7 +12,7 @@ class Scripture
         _reference = reference;
         _words = new List<Word>();
         
-        // Split the scripture text into words and create Word objects
+        // split the text by spaces and make Word objects for each
         string[] textArray = text.Split(' ');
         foreach (string word in textArray)
         {
@@ -20,9 +20,7 @@ class Scripture
         }
     }
 
-    /// <summary>
-    /// Returns the formatted scripture with reference and text
-    /// </summary>
+    // returns the full scripture with reference and all the words
     public string GetDisplayText()
     {
         string result = _reference.GetReference() + " ";
@@ -35,9 +33,7 @@ class Scripture
         return result.Trim();
     }
 
-    /// <summary>
-    /// Hides a random word from the scripture
-    /// </summary>
+    // hides some random words (picks them at random)
     public void HideRandomWords(int numberToHide = 1)
     {
         Random random = new Random();
@@ -49,9 +45,7 @@ class Scripture
         }
     }
 
-    /// <summary>
-    /// Checks if all words in the scripture are hidden
-    /// </summary>
+    // checks if all words are hidden
     public bool IsCompletelyHidden()
     {
         foreach (Word word in _words)
