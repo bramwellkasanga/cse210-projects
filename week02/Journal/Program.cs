@@ -1,12 +1,7 @@
 using System;
 
-/*
-    BEYOND CORE REQUIREMENTS:
-    This implementation uses the pipe (|) character as a separator for saving/loading entries,
-    which is unlikely to appear in normal journal content. The program provides a clean menu
-    interface for easy navigation and uses proper object-oriented design with abstraction
-    principles throughout.
-*/
+// journal app - lets you write entries and save/load them
+// uses pipe character to separate data when saving
 
 class Program
 {

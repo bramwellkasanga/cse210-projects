@@ -4,16 +4,13 @@ using System.IO;
 
 public class Journal
 {
-    // Member variables
     private List<Entry> _entries;
 
-    // Constructor
     public Journal()
     {
         _entries = new List<Entry>();
     }
 
-    // Methods
     public void AddEntry(Entry entry)
     {
         _entries.Add(entry);

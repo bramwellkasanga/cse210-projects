@@ -3,11 +3,9 @@ using System.Collections.Generic;
 
 public class PromptGenerator
 {
-    // Member variables
     private List<string> _prompts;
     private Random _random;
 
-    // Constructor
     public PromptGenerator()
     {
         _random = new Random();
@@ -24,7 +22,7 @@ public class PromptGenerator
         };
     }
 
-    // Methods
+    // return a random prompt from the list
     public string GetRandomPrompt()
     {
         int index = _random.Next(_prompts.Count);

@@ -2,12 +2,10 @@ using System;
 
 public class Entry
 {
-    // Member variables
     private string _prompt;
     private string _response;
     private string _date;
 
-    // Constructor
     public Entry(string prompt, string response, string date)
     {
         _prompt = prompt;
@@ -15,7 +13,6 @@ public class Entry
         _date = date;
     }
 
-    // Methods
     public string GetPrompt()
     {
         return _prompt;
@@ -31,7 +28,6 @@ public class Entry
         return _date;
     }
 
-    // Display the entry
     public void Display()
     {
         Console.WriteLine($"Date: {_date}");
@@ -40,13 +36,13 @@ public class Entry
         Console.WriteLine();
     }
 
-    // Convert entry to string format for saving
+    // format entry for saving to file
     public string GetStringFormat()
     {
         return $"{_date}|{_prompt}|{_response}";
     }
 
-    // Create entry from string format (for loading)
+    // load entry from file format
     public static Entry CreateFromString(string line)
     {
         string[] parts = line.Split("|");
