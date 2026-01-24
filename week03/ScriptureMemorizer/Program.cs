@@ -3,7 +3,7 @@ using System;
 class Program
 {
     // Scripture Memorizer - hides words in scripture to help people practice
-    // hiding 3 words at a time so they can test themselves
+    
     static void Main(string[] args)
     {
         // make a reference for John 3:16
