@@ -1,7 +1,7 @@
 using System;
 
 // journal app - lets you write entries and save/load them
-// uses pipe character to separate data when saving
+
 
 class Program
 {
